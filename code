@@ -1,0 +1,16 @@
+public Bitmap imageResolutionScale(Bitmap bitmap, int maxSize){
+        Bitmap newBitmap;
+        if (bitmap.getHeight() > bitmap.getWidth()){
+            //dikey fotoğraf
+            int x = maxSize/(bitmap.getHeight() / bitmap.getWidth());
+            newBitmap = Bitmap.createScaledBitmap(bitmap,x,maxSize,true);
+        }else if (bitmap.getHeight() < bitmap.getWidth()){
+            //yatay fotoğraf
+            int y = maxSize/(bitmap.getWidth() / bitmap.getHeight());
+            newBitmap = Bitmap.createScaledBitmap(bitmap,maxSize,y,true);
+        }else {
+            //kare fotoğraf
+            newBitmap = Bitmap.createScaledBitmap(bitmap,maxSize,maxSize,true);
+        }
+        return newBitmap;
+    }
